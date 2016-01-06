@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03303BAC1C3D8DE40021F8BB /* Endpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 03303BAB1C3D8DE40021F8BB /* Endpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03303BB31C3D8DE40021F8BB /* Endpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03303BA81C3D8DE40021F8BB /* Endpoint.framework */; };
 		03303BB81C3D8DE40021F8BB /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BB71C3D8DE40021F8BB /* EndpointTests.swift */; };
+		03303BC51C3D8F800021F8BB /* Endpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 03303BC31C3D8F800021F8BB /* Endpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03303BC61C3D8F800021F8BB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03303BC41C3D8F800021F8BB /* Info.plist */; };
+		03303BC81C3D8FA80021F8BB /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BC71C3D8FA80021F8BB /* Endpoint.swift */; };
+		5DC28194B19CECA8120D4549 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2CD08966D082682F94697E /* Pods.framework */; };
+>>>>>>> ba5ab5a... fixup rename
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +28,11 @@
 
 /* Begin PBXFileReference section */
 		03303BA81C3D8DE40021F8BB /* Endpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Endpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		03303BAB1C3D8DE40021F8BB /* Endpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Endpoint.h; sourceTree = "<group>"; };
-		03303BAD1C3D8DE40021F8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03303BB21C3D8DE40021F8BB /* EndpointTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EndpointTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03303BB71C3D8DE40021F8BB /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		03303BB91C3D8DE40021F8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03303BC31C3D8F800021F8BB /* Endpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endpoint.h; sourceTree = "<group>"; };
+		03303BC41C3D8F800021F8BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,7 @@
 		03303B9E1C3D8DE40021F8BB = {
 			isa = PBXGroup;
 			children = (
-				03303BAA1C3D8DE40021F8BB /* Endpoint */,
+				03303BC21C3D8F800021F8BB /* Source */,
 				03303BB61C3D8DE40021F8BB /* EndpointTests */,
 				03303BA91C3D8DE40021F8BB /* Products */,
 			);
@@ -68,15 +72,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		03303BAA1C3D8DE40021F8BB /* Endpoint */ = {
-			isa = PBXGroup;
-			children = (
-				03303BAB1C3D8DE40021F8BB /* Endpoint.h */,
-				03303BAD1C3D8DE40021F8BB /* Info.plist */,
-			);
-			path = Endpoint;
-			sourceTree = "<group>";
-		};
 		03303BB61C3D8DE40021F8BB /* EndpointTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +81,15 @@
 			path = EndpointTests;
 			sourceTree = "<group>";
 		};
+		03303BC21C3D8F800021F8BB /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				03303BC31C3D8F800021F8BB /* Endpoint.h */,
+				03303BC41C3D8F800021F8BB /* Info.plist */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +97,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03303BAC1C3D8DE40021F8BB /* Endpoint.h in Headers */,
+				03303BC51C3D8F800021F8BB /* Endpoint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,27 +312,30 @@
 		03303BBD1C3D8DE40021F8BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Endpoint/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.Endpoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		03303BBE1C3D8DE40021F8BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Endpoint/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.Endpoint;

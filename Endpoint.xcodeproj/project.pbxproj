@@ -13,7 +13,6 @@
 		03303BC61C3D8F800021F8BB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03303BC41C3D8F800021F8BB /* Info.plist */; };
 		03303BC81C3D8FA80021F8BB /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03303BC71C3D8FA80021F8BB /* Endpoint.swift */; };
 		5DC28194B19CECA8120D4549 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2CD08966D082682F94697E /* Pods.framework */; };
->>>>>>> ba5ab5a... fixup rename
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +32,7 @@
 		03303BB91C3D8DE40021F8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03303BC31C3D8F800021F8BB /* Endpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endpoint.h; sourceTree = "<group>"; };
 		03303BC41C3D8F800021F8BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03303BC71C3D8FA80021F8BB /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				03303BC31C3D8F800021F8BB /* Endpoint.h */,
+				03303BC71C3D8FA80021F8BB /* Endpoint.swift */,
 				03303BC41C3D8F800021F8BB /* Info.plist */,
 			);
 			path = Source;
@@ -198,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03303BC81C3D8FA80021F8BB /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

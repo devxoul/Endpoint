@@ -20,9 +20,9 @@ Create an Enum with raw type `Rule` and conform protocol `Endpoint`. Each cases 
 enum GitHub: Rule, Endpoint {
     static var baseURLString = "https://api.github.com"
 
-    case Repo        = "GET  /repos/{owner}/{repo}"
-    case RepoIssues  = "GET  /repos/{owner}/{repo}/issues"
-    case CreateIssue = "POST /repos/{owner}/{repo}/issues"
+    case Repo        = "GET  /repos/<owner>/<repo>"
+    case RepoIssues  = "GET  /repos/<owner>/<repo>/issues"
+    case CreateIssue = "POST /repos/<owner>/<repo>/issues"
 }
 ```
 

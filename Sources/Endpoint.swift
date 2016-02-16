@@ -91,9 +91,9 @@ public extension Endpoint {
 
         var placeholders = [String]()
 
-        // replace `{key}` with `value`
+        // replace `<key>` with `value`
         for (key, value) in values ?? [:] {
-            let pattern = "{" + key + "}" // 3x faster than "{\(key)}"
+            let pattern = "<" + key + ">" // 3x faster than "<\(key)>"
             let replacement = value as? String ?? String(value)
             if path.containsString(pattern) {
                 path = path.stringByReplacingOccurrencesOfString(pattern, withString: replacement)

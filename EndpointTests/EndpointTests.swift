@@ -29,11 +29,11 @@ enum GitHub: Rule, Endpoint {
 
     static var baseURLString = "https://api.github.com"
 
-    case User = "GET /user/{username}"
+    case User = "GET /user/<username>"
 
-    case Repo = "GET /repos/{owner}/{repo}"
-    case RepoIssues  = "GET  /repos/{owner}/{repo}/issues"
-    case CreateIssue = "POST /repos/{owner}/{repo}/issues"
+    case Repo = "GET /repos/<owner>/<repo>"
+    case RepoIssues  = "GET  /repos/<owner>/<repo>/issues"
+    case CreateIssue = "POST /repos/<owner>/<repo>/issues"
 
 }
 

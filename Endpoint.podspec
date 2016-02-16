@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Endpoint"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "Elegant API Abstraction for Swift."
   s.homepage         = "https://github.com/devxoul/Endpoint"
   s.license          = { :type => "MIT", :file => "LICENSE" }

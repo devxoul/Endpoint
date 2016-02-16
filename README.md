@@ -45,13 +45,13 @@ Installation
 - **Using [CocoaPods](https://cocoapods.org)**:
 
     ```ruby
-    pod 'Endpoint', '~> 0.1'
+    pod 'Endpoint', '~> 0.2'
     ```
 
 - **Using [Carthage](https://github.com/Carthage/Carthage)**:
 
     ```
-    github "devxoul/Endpoint" ~> 0.1
+    github "devxoul/Endpoint" ~> 0.2
     ```
 
 - **Using [Swift Package Manager](https://swift.org/package-manager)**:
@@ -62,7 +62,7 @@ Installation
     let package = Package(
         name: "MyAwesomeApp",
         dependencies: [
-            .Package(url: "https://github.com/devxoul/Endpoint", "0.1.0"),
+            .Package(url: "https://github.com/devxoul/Endpoint", "0.2.0"),
         ]
     )
     ```

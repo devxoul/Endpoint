@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source_files     = "Sources/*.swift"
   s.requires_arc     = true
 
-  s.dependency 'Alamofire', '~> 3.2'
+  s.dependency 'Alamofire', '~> 3.4'
 
   s.ios.deployment_target = "8.0"
   s.osx.deployment_target = "10.9"

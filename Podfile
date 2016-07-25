@@ -1,5 +1,10 @@
-use_frameworks!
-
 platform :ios, '8.0'
 
-pod 'Alamofire', '~> 3.2'
+target 'Endpoint' do
+  use_frameworks!
+
+  pod 'Alamofire', '~> 3.4'
+
+  target 'EndpointTests' do
+  end
+end

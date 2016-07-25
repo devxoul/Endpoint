@@ -21,7 +21,6 @@
 // SOFTWARE.
 
 import Alamofire
-import Foundation
 
 /// `String` itself.
 public typealias Rule = String
@@ -34,9 +33,15 @@ private var managers = [String: Manager]()
 
 public protocol Endpoint: RawRepresentable {
     static var baseURLString: String { get }
+    static var headers: [String: String]? { get }
     var rule: Rule { get }
 }
 
+public extension Endpoint {
+    static var headers: [String: String]? {
+        return nil
+    }
+}
 
 public extension Endpoint {
 
@@ -110,6 +115,15 @@ public extension Endpoint {
         return (method, URL, otherValues)
     }
 
+    public static func absoluteURL(baseURL: Alamofire.URLStringConvertible,
+                                   _ path: Alamofire.URLStringConvertible) -> Alamofire.URLStringConvertible {
+        // already an absolute URL
+        if let URL = NSURL(string: path.URLString) where !URL.scheme.isEmpty {
+            return URL
+        }
+        return baseURL.URLString + path.URLString
+    }
+
 
     // MARK: Request
 
@@ -122,19 +136,29 @@ public extension Endpoint {
     /// - Returns: The `Alamofire.Request` instance.
     public func request(parameters: [String: AnyObject]? = nil,
                         encoding: Alamofire.ParameterEncoding = .URL,
-                        unless: URLStringConvertible? = nil) -> Alamofire.Request {
+                        unless: Alamofire.URLStringConvertible? = nil,
+                        headers: [String: String]? = nil) -> Alamofire.Request {
         let (method, URL, otherValues) = self.buildURL(parameters)
+        let headers = headers ?? self.dynamicType.headers
+        return self.dynamicType.request(method, URL,
+                                        parameters: otherValues,
+                                        encoding: encoding,
+                                        unless: unless,
+                                        headers: headers)
+    }
 
-        // if `unless` is the URL string
-        if let URLString = unless?.URLString, URL = NSURL(string: URLString) where !URL.scheme.isEmpty {
-            return Alamofire.request(method, URL)
+    public static func request(method: Alamofire.Method,
+                               _ URL: Alamofire.URLStringConvertible,
+                               parameters: [String: AnyObject]? = nil,
+                               encoding: Alamofire.ParameterEncoding = .URL,
+                               unless: Alamofire.URLStringConvertible? = nil,
+                               headers: [String: String]? = nil) -> Alamofire.Request {
+        let URL = self.absoluteURL(self.baseURLString, URL)
+        if let unless = unless {
+            let unlessURL = self.absoluteURL(self.baseURLString, unless)
+            return Alamofire.request(method, unlessURL, headers: headers)
         }
-        // if `unless` is the URL path
-        if let path = unless?.URLString {
-            return Alamofire.request(method, self.dynamicType.baseURLString + path)
-        }
-
-        return Alamofire.request(method, URL, parameters: otherValues, encoding: encoding)
+        return Alamofire.request(method, URL, parameters: parameters, encoding: encoding, headers: headers)
     }
 
 }

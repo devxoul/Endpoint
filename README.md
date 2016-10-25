@@ -1,5 +1,7 @@
-Endpoint
-========
+Endpoint (Deprecated)
+=====================
+
+⚠️ This project has been deprecated. Consider using [Moya](https://github.com/Moya/Moya) and [MoyaSugar](https://github.com/devxoul/MoyaSugar) instead.
 
 ![Swift](https://img.shields.io/badge/Swift-2.1-orange.svg)
 [![Build Status](https://travis-ci.org/devxoul/Endpoint.svg)](https://travis-ci.org/devxoul/Endpoint)
